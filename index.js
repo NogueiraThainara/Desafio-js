@@ -88,12 +88,15 @@ function init() {
   //bill.addItem(new Item('croissant', 5.99));
   //bill.addItem(new Item('café', 2.99));
   bill.render();
+  if(bill.items.length == 0){
+    alert('Comanda está vazia');
+  }
   document.getElementsByTagName('body')[0].style.display = 'flex';
 }
 
 function printBill() {
   window.print();
-  let priceTotal = document.querySelector('total');
+  let priceTotal = document.querySelector('#total');
   bill.items.length = 0;
   bill.removeItem();
   priceTotal.innerHTML = 'R$ 0,00';
