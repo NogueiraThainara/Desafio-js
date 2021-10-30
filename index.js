@@ -97,7 +97,7 @@ function printBill() {
   bill.items.length = 0;
   bill.removeItem();
   priceTotal.innerHTML = 'R$ 0,00';
-  //limpar();
+  limpar();
 }
 
  function add(){
@@ -111,7 +111,7 @@ function printBill() {
     bill.addItem(new Item(foodName, foodPrice));
     bill.billTotal(foodPrice);
     bill.render();
-    //limpar();
+    limpar();
   }
  }
 
@@ -121,13 +121,13 @@ function printBill() {
    bill.render();
  
  }
- /*function limpar(){
-   let foodName = document.querySelector('nome');
-   let foodPrice = document.querySelector('preco');
+ function limpar(){
+   let foodName = document.querySelector('#nome');
+   let foodPrice = document.querySelector('#preco');
 
    foodName.value = '';
    foodPrice.value = '';
- }*/
+ }
   
   
 
