@@ -24,13 +24,13 @@ class Bill {
 
   removeItem = nome => {
     
-    var posicao = this.items.indexOf(nome, 1);
-     bill.render();
-    this.items.splice(posicao, 2);
+    var posicao = this.items.findIndex(elemento => elemento.name === nome);
+    this.items.splice(posicao, 1);
 
     let priceTotal = this.items.reduce((acumulador, valorAtual)=> {
       return acumulador + valorAtual.price}, 0);
     
+      bill.render();
       document.getElementById('total').innerHTML = 'R$ ' + priceTotal;
 
   }
@@ -63,7 +63,12 @@ class Bill {
 
       let deletar = document.createElement('button');
       deletar.innerHTML = 'deletar';
-      deletar.setAttribute('onclick', 'deletar');
+      //deletar.setAttribute('onclick', 'deletar');
+       deletar.onclick = function (){
+        console.log('>>', item.name)
+        var itemName = item.name;
+        bill.removeItem(itemName);
+      }
     
 
       foodName.innerHTML = item.name;
@@ -71,6 +76,7 @@ class Bill {
      
       row.append(foodName);
       row.append(foodPrice);
+      row.append(deletar);
       billContainer.append(row);
 
     
